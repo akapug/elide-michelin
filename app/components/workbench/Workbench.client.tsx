@@ -194,7 +194,7 @@ export const Workbench = memo(function Workbench({
                   <div className="ml-auto" />
                   {selectedView === 'code' && (
                     <div className="flex overflow-y-auto">
-                      <BackupStatusIndicator />
+                      {/* <BackupStatusIndicator /> */}
                       <div className="w-4" />
                       <PanelHeaderButton
                         className="mr-1 text-sm"
