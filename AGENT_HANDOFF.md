@@ -15,7 +15,17 @@
 ## Known Issues 🐛
 
 1. **Deploy button creates unknown error** - needs investigation
+   - Location: `app/components/header/DeployButton.tsx`
+   - Flow: Build → Zip → POST to `/api/deploy-simple` → Deploy to Convex hosting
+   - Backend: `app/lib/.server/deploy-simple.ts`
+   - Likely issue: Missing env vars or Convex hosting API error
+   - Check browser console and network tab for error details
+
 2. **BackupStatusIndicator disabled** - was causing persistent "Saving..." toasts due to file sync state mismatch
+   - Location: `app/components/workbench/Workbench.client.tsx` (line 197, commented out)
+   - Root cause: File update counter doesn't match saved counter
+   - Temporary fix: Disabled component
+   - Proper fix: Debug chatSyncWorker in `app/lib/stores/startup/history.ts`
 
 ## Your Mission 🎯
 
