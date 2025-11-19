@@ -76,12 +76,15 @@ export function getProvider(
     case 'Google': {
       model = modelForProvider(modelProvider, modelChoice);
       let google;
-      if (userApiKey) {
+      // MICHELIN: Check for GOOGLE_API_KEY or GEMINI_KEY first, then fall back to Vertex AI
+      const googleApiKey = userApiKey || getEnv('GOOGLE_API_KEY') || getEnv('GEMINI_KEY');
+      if (googleApiKey) {
         google = createGoogleGenerativeAI({
-          apiKey: userApiKey || getEnv('GOOGLE_API_KEY'),
+          apiKey: googleApiKey,
           fetch: userApiKey ? userKeyApiFetch('Google') : fetch,
         });
       } else {
+        // Fall back to Vertex AI if no API key is available
         const credentials = JSON.parse(getEnv('GOOGLE_VERTEX_CREDENTIALS_JSON')!);
         google = createVertex({
           project: credentials.project_id,

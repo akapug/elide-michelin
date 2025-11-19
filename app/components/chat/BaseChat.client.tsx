@@ -155,10 +155,10 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
               {!chatStarted && (
                 <div id="intro" className="mx-auto mb-8 mt-12 max-w-chat px-4 text-center md:mt-16 lg:px-0">
                   <h1 className="mb-2 animate-fadeInFromLoading font-display text-4xl font-black leading-none tracking-tight text-content-primary md:text-5xl lg:mb-4 lg:text-6xl">
-                    Now you&rsquo;re cooking
+                    Michelin
                   </h1>
                   <p className="animate-fadeInFromLoading text-balance font-display text-lg font-medium text-content-secondary [animation-delay:200ms] [animation-fill-mode:backwards] md:text-xl">
-                    The open-source app generator powered by Convex
+                    The polyglot AI app generator powered by Elide + Convex
                   </p>
                 </div>
               )}
@@ -380,6 +380,17 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                         fill="currentColor"
                       />
                     </svg>
+                  </a>
+                </p>
+                <hr className="h-8 w-0.5 bg-content-tertiary opacity-20" />
+                <p className="flex items-center">
+                  Supercharged&nbsp;by{' '}
+                  <a
+                    href="https://github.com/elide-dev/elide"
+                    className="contents transition-colors hover:text-content-primary font-bold"
+                    aria-label="Elide"
+                  >
+                    <span className="ml-[0.4em]">Elide</span>
                   </a>
                 </p>
                 <hr className="h-8 w-0.5 bg-content-tertiary opacity-20" />
